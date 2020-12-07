@@ -2,6 +2,6 @@
 
 [Tampermonkey](https://www.tampermonkey.net/) is required to use these scripts.
 
-# Scripts availables
+# Implemented scripts
 
 - [X] Fake attack

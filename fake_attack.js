@@ -50,9 +50,9 @@
     const createFakeLink = () => {
         const url = location.href;
         if (url.match(/screen=info_village/) !== null) {
-            const target = document.getElementById("send_troops")
+            const target = doc.getElementById("send_troops")
             const target_tr = target.parentNode.parentNode.parentNode
-            const tr = document.createElement("tr")
+            const tr = doc.createElement("tr")
             tr.innerHTML = `
                 <td colspan="2">
                     <form method="POST">

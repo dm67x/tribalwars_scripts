@@ -5,3 +5,4 @@
 # Scripts availables
 
 - [X] Fake attack
+- [X] Distance calculator (Calculate the time of each unit based on a target village)

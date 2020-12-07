@@ -8,7 +8,7 @@
 // @grant        none
 // ==/UserScript==
 
-// Step 1: Goto the profile of the target
+// Step 1: Goto the village information of the targetted village
 // Step 2: Click on the "Send fake" button
 // Step 3: Click on the "Attack" button
 

@@ -1,0 +1,16 @@
+{
+  "name": "tribalwars_scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:dm67x/tribalwars_scripts.git",
+  "author": "dm67x <dm67x@outlook.fr>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "axios": "^0.21.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

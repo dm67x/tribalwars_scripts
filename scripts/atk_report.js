@@ -1,17 +1,6 @@
-// ==UserScript==
-// @name         Atk Report
-// @namespace    https://github.com/dm67x/tribalwars_scripts
-// @version      0.1
-// @description  Create a sharable report for your tribe
-// @author       dm67x
-// @match        https://fr65.guerretribale.fr/game.php?village=*
-// @grant        none
-// @run-at       document-end
-// ==/UserScript==
+import anime from 'animejs/lib/anime.es'
 
-(function() {
-    'use strict';
-
+export default () => {
     const templateAttack = (name, coords, troops, losses) => {
         return `
         [table]
@@ -193,8 +182,34 @@
             templateZone.style.display = "block"
             templateZone.focus()
             templateZone.select()
-            document.execCommand("copy")
+            var copyStatus = document.execCommand("copy")
+            if (copyStatus) {
+                const alertBox = document.createElement("div")
+                alertBox.classList.add("autoHideBox")
+                alertBox.classList.add("success")
+                alertBox.innerHTML = `
+                    <p>Copied to the clipboard</p>
+                `
+                document.body.appendChild(alertBox)
+
+                var alertBoxOpts = {
+                    opacity: 1
+                }
+
+                anime({
+                    targets: alertBoxOpts,
+                    opacity: 0,
+                    easing: 'easeOutSine',
+                    duration: 3000,
+                    update: () => {
+                        alertBox.style.opacity = alertBoxOpts.opacity
+                    },
+                    complete: () => {
+                        alertBox.remove()
+                    }
+                })
+            }
             templateZone.style.display = "none"
         })
     }
-})()
+}

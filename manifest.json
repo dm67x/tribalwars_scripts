@@ -1,0 +1,16 @@
+{
+    "name": "TribalWars Scripts",
+    "version": "1.0",
+    "description": "",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["https://fr65.guerretribale.fr/game.php?village=*"],
+            "run_at": "document_end",
+            "js": ["dist/tribalwars.js"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "dist/icon.png"
+    }
+}

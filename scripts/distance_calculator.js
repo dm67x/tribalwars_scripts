@@ -1,20 +1,6 @@
-// ==UserScript==
-// @name         Distance calculator
-// @namespace    https://github.com/dm67x/tribalwars_scripts
-// @version      0.1
-// @description  Calculate the distance between you and your target
-// @author       dm67x
-// @match        https://fr65.guerretribale.fr/game.php?village=*
-// @grant        none
-// @require      https://cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js
-// @require      https://cdn.jsdelivr.net/npm/axios-userscript-adapter@0.0.4/dist/axiosGmxhrAdapter.min.js
-// @grant        GM_xmlhttpRequest
-// @run-at       document-end
-// ==/UserScript==
+import axios from 'axios'
 
-(function() {
-    'use strict';
-
+export default () => {
     const distance = (x, y, xx, yy) => { const fx = xx - x; const fy = yy - y; return Math.sqrt(fx * fx + fy * fy) }
     const unit_distance = (initial, worldSpeed, unitSpeed) => (initial * 60) / worldSpeed / unitSpeed
     const print_distance = (dist) => {
@@ -39,8 +25,15 @@
         if (isOpen) {
             const mapInfoContent = document.getElementById("info_content")
             const exist = mapInfoContent.querySelector("#distanceCalculator")
+            const barbareBonus = mapInfoContent.querySelector("#info_bonus_image_row")
+            var coords = null
+            if (barbareBonus !== null) {
+                coords = mapInfoContent.querySelector("tbody > tr:nth-child(2) > th").textContent
+            } else {
+                coords = mapInfoContent.querySelector("tbody > tr:first-child > th").textContent
+            }
 
-            var coords = mapInfoContent.querySelector("tbody > tr:first-child > th").textContent.match(/([0-9]{3})\|([0-9]{3})/)
+            coords = coords.match(/([0-9]{3})\|([0-9]{3})/)
             coords = [ parseInt(coords[1]), parseInt(coords[2]) ]
             if (coords[0] == village[0] && coords[1] == village[1]) {
                 return; // don't show for your own village
@@ -90,7 +83,7 @@
                     distanceTdLabel.textContent = "Distance:"
                     distanceContent.appendChild(distanceTdLabel)
                     distanceContent.appendChild(distanceTdValue)
-    
+
                     distanceTdValue.innerHTML = distanceHTML
                     mapInfoContent.querySelector("tbody").appendChild(distanceContent)
                 }
@@ -130,4 +123,4 @@
     } else {
         observer.disconnect()
     }
-})()
+}

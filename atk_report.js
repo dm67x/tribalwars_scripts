@@ -17,7 +17,7 @@
         [table]
             [**]Attacker:[||][player]` + name + `[/player][/**]
             [*]Origin:[|][coord]` + coords + `[/coord]
-            [*]Quantity:[|][unit]spear[/unit]` + troops["spear"] + `
+            [*]Quantity:[|][unit]spear[/unit] ` + troops["spear"] + `
             [unit]sword[/unit] ` + troops["sword"] + `
             [unit]axe[/unit] ` + troops["axe"] + `
             [unit]archer[/unit] ` + troops["archer"] + `
@@ -49,7 +49,7 @@
         [table]
             [**]Defender:[||][player]` + name + `[/player][/**]
             [*]Destination:[|][coord]` + coords + `[/coord]
-            [*]Quantity:[|][unit]spear[/unit]` + troops["spear"] + `
+            [*]Quantity:[|][unit]spear[/unit] ` + troops["spear"] + `
             [unit]sword[/unit] ` + troops["sword"] + `
             [unit]axe[/unit] ` + troops["axe"] + `
             [unit]archer[/unit] ` + troops["archer"] + `

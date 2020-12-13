@@ -11,6 +11,7 @@
     "axios": "^0.21.0"
   },
   "scripts": {
-    "build": "webpack"
+    "dev": "webpack",
+    "build": "webpack --mode=production"
   }
 }
